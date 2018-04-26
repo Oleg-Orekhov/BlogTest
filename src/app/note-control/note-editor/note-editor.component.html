@@ -1,0 +1,7 @@
+<form #form="ngForm" (ngSubmit)="addEdited()">
+  <input type="text" name="name" [value]="currentNote.name" [(ngModel)]="currentNote.name">
+  <input type="text" name="content" [value]="currentNote.content" [(ngModel)]="currentNote.content">
+  <input type="submit">
+</form>
+<a (click)="deleteNote();">Delete</a>
+<a routerLink=''>Go back</a>
