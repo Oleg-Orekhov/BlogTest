@@ -1,0 +1,17 @@
+<div>
+  <div *ngIf="comments !== undefined">
+    <h2>Comments</h2>
+    <ul>
+      <li *ngFor="let comment of comments">
+        <p>{{comment.author}}</p>
+        <p>{{comment.content}}</p>
+        <p>{{comment.created_at}}</p>
+      </li>
+    </ul>
+  </div>
+  <form #form="ngForm" (ngSubmit)="addComment()">
+    <input type="text" name="name" [value]="comment.author" [(ngModel)]="comment.author">
+    <input type="text" name="name" [value]="comment.content" [(ngModel)]="comment.content">
+    <input type="submit">
+  </form>
+</div>

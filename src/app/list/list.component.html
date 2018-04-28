@@ -1,8 +1,12 @@
-<div *ngFor="let note of list; index as i">
+<div *ngFor="let note of list">
   <div>{{note.name}}</div>
   <div>{{note.content}}</div>
-  <div>{{i}}</div>
-  <a routerLink="/edit/{{i}}">Edit</a>
-  <a (click)="deleteNote(i);">Delete</a>
+  <a routerLink="/edit/{{note.id}}">Edit</a>
+  <a (click)="deleteNote(note.id);">Delete</a>
+  <a routerLink="/details/{{note.id}}">Details</a>
+
 </div>
 <a routerLink="/create">Create new</a>
+<button (click)="saveAll()">Save to designated storage</button>
+<button (click)="clearData()">Clear data</button>
+

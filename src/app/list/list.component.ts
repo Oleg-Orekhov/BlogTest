@@ -8,9 +8,7 @@ import { NotesService } from '../services/notes.service';
 })
 export class ListComponent implements OnInit {
   list = [];
-  constructor(private notesService: NotesService ) {
-    this.notesService.getNotes();
-  }
+  constructor(private notesService: NotesService ) {}
 
   ngOnInit() {
     this.notesService.currentNotes.subscribe((res) => {
@@ -20,5 +18,11 @@ export class ListComponent implements OnInit {
   }
   deleteNote(id) {
     this.notesService.deleteNote(id);
+  }
+  saveAll() {
+    this.notesService.saveData();
+  }
+  clearData() {
+    this.notesService.clearData();
   }
 }

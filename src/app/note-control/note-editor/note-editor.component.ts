@@ -9,23 +9,21 @@ import { NotesService } from '../../services/notes.service';
 })
 export class NoteEditorComponent implements OnInit {
   currentNote;
-  noteId;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private notesService: NotesService) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     const note = this.notesService.getNote(id);
-    this.noteId = id;
     this.currentNote = note;
   }
   addEdited() {
-    this.notesService.updateNote(this.currentNote, this.noteId);
+    this.notesService.updateNote(this.currentNote);
     this.goHome();
   }
   deleteNote() {
-    this.notesService.deleteNote(this.noteId);
+    this.notesService.deleteNote(this.currentNote.id);
     this.goHome();
   }
   goHome() {

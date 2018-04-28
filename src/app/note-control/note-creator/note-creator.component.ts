@@ -10,7 +10,8 @@ import { NotesService } from '../../services/notes.service';
 export class NoteCreatorComponent implements OnInit {
   currentNote = {
     name: '',
-    content: ''
+    content: '',
+    storage: 0
   };
   constructor(private notesService: NotesService,
               private router: Router) { }
