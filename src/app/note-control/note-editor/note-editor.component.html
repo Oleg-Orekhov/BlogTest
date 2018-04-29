@@ -1,6 +1,7 @@
 <form #form="ngForm" (ngSubmit)="addEdited()">
   <input type="text" name="name" [value]="currentNote.name" [(ngModel)]="currentNote.name">
-  <input type="text" name="content" [value]="currentNote.content" [(ngModel)]="currentNote.content">
+  <textarea type="text" name="content" [value]="currentNote.content" [(ngModel)]="currentNote.content">
+  </textarea>
   <input type="submit">
 </form>
 <a (click)="deleteNote();">Delete</a>

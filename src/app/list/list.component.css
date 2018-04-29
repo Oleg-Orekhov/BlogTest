@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+}
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 1 85%;
+}
+.list-item {
+  background-color: #68c7ec;
+  flex: 0 0 200px;
+  border: 3px solid #046293;
+  border-radius: 6px;
+  margin-right: 20px;
+  box-shadow: 4px 4px 10px grey;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+.control-group {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 0 0 10%;
+  margin-right: 5%;
+}
+.save-button {
+  background: none;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 10%;
+}
+.save-button > img {
+  width: 40%;
+  display: block;
+  margin: 0 10% 0 0;
+  float: left;
+}
+.save-button > span {
+  display: block;
+  width: 50%;
+  float: left;
+}
+.create-link {
+  flex: 0 0 200px;
+}
+.create-link > a {
+  text-decoration: none;
+  display: block;
+}
+.create-link > a > img {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+/*.create-link > a > span {*/
+  /*color: #bababa;*/
+  /*text-align: center;*/
+/*}*/

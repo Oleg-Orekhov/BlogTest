@@ -15,7 +15,6 @@ export class NoteCommentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
   addComment() {
     const comment = {...this.comment, created_at: Date.now()};

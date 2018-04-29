@@ -67,11 +67,12 @@ export class NotesService {
     const firebase = this.http.get('https://blog-test-7093f.firebaseio.com/notes.json');
 
     firebase.subscribe((firebaseNotes) => {
-      let notes;
+      let notes = [];
       if (localNotes) {
-        notes = localNotes.concat(firebaseNotes);
-      } else {
-        notes = firebaseNotes;
+        notes = notes.concat(localNotes);
+      }
+      if (firebaseNotes) {
+        notes = notes.concat(firebaseNotes);
       }
       this.currentNotesChanged.emit(notes);
     });

@@ -1,12 +1,28 @@
-<div *ngFor="let note of list">
-  <div>{{note.name}}</div>
-  <div>{{note.content}}</div>
-  <a routerLink="/edit/{{note.id}}">Edit</a>
-  <a (click)="deleteNote(note.id);">Delete</a>
-  <a routerLink="/details/{{note.id}}">Details</a>
-
+<div class="container">
+  <div class="control-group">
+    <button (click)="saveAll()" class="save-button">
+      <img src="../../assets/saveico.png" >
+      <span>Save to designated storage</span>
+    </button>
+    <button (click)="clearData()" class="save-button">
+      <img src="../../assets/cleanico.png" >
+      <span>Clear data</span>
+    </button>
+  </div>
+  <div class="list">
+    <div *ngFor="let note of list" class="list-item">
+      <div>{{note.name}}</div>
+      <div>{{note.content}}</div>
+      <a routerLink="/edit/{{note.id}}">Edit</a>
+      <a (click)="deleteNote(note.id);">Delete</a>
+      <a routerLink="/details/{{note.id}}">Details</a>
+    </div>
+    <div class="create-link">
+      <a routerLink="/create">
+        <img src="../../assets/plusico.png">
+        <!--<span>Create New</span>-->
+      </a>
+    </div>
+  </div>
 </div>
-<a routerLink="/create">Create new</a>
-<button (click)="saveAll()">Save to designated storage</button>
-<button (click)="clearData()">Clear data</button>
 
