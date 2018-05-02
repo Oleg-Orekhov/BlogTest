@@ -8,10 +8,11 @@ import { NotesService } from './services/notes.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NoteEditorComponent } from './note-control/note-editor/note-editor.component';
-import { FormsModule } from '@angular/forms';
+import {EmailValidator, FormsModule} from '@angular/forms';
 import { NoteDetailsComponent } from './note-control/note-details/note-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NoteCommentsComponent } from './note-control/note-details/note-comments/note-comments.component';
+import { TwoWordsDirective } from './shared/two-words.directive';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NoteCommentsComponent } from './note-control/note-details/note-comments
     NoteCreatorComponent,
     NoteEditorComponent,
     NoteDetailsComponent,
-    NoteCommentsComponent
+    NoteCommentsComponent,
+    TwoWordsDirective
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import { NoteCommentsComponent } from './note-control/note-details/note-comments
     HttpClientModule,
     FormsModule
   ],
-  providers: [NotesService],
+  providers: [NotesService, EmailValidator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

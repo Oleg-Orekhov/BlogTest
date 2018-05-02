@@ -11,8 +11,9 @@
   </div>
   <form #form="ngForm" (ngSubmit)="addComment(form)">
     <label for="author"> Author </label>
-    <input id="author" type="text" name="author" [value]="comment.author" [(ngModel)]="comment.author" #author="ngModel" required>
-    <div class="alert" *ngIf="author.invalid && (author.dirty || author.touched)">Author is required</div>
+    <input id="author" type="text" name="author" [value]="comment.author" appTwoWords [(ngModel)]="comment.author" #author="ngModel" required>
+    <div class="alert" *ngIf="author.errors?.required && (author.dirty && author.touched)">Author is required</div>
+    <div class="alert" *ngIf="author.errors?.twoWords && (author.dirty && author.touched)">Two words with capital letters must be present</div>
     <label for="comment"> Comment </label>
     <textarea id="comment" type="text" name="content" [value]="comment.content" [(ngModel)]="comment.content" #content="ngModel" required></textarea>
     <div class="alert" *ngIf="content.invalid && (content.dirty || content.touched)">Comment is required</div>
