@@ -1,0 +1,10 @@
+.comments {
+  list-style-type: none;
+
+}
+.comments > li {
+  border: 3px solid #046293;
+  background-color: #68c7ec;
+  box-shadow: 4px 4px 10px grey;
+  margin-bottom: 10px;
+}

@@ -16,9 +16,12 @@ export class NoteEditorComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     const note = this.notesService.getNote(id);
-    this.currentNote = note;
+    this.currentNote = {...note};
   }
-  addEdited() {
+  addEdited(form) {
+      if (form.invalid) {
+      return;
+    }
     this.notesService.updateNote(this.currentNote);
     this.goHome();
   }

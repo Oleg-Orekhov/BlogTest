@@ -13,12 +13,13 @@ export class NoteDetailsComponent implements OnInit {
 
   ngOnInit() {
     const id = this.router.snapshot.paramMap.get('id');
-    const note = this.notesService.getNote(id);
+    let note = this.notesService.getNote(id);
+    this.notesService.currentNote.subscribe((res) => {
+      note = res;
+    });
     this.currentNote = note;
   }
   addComment(comment) {
-    console.log(this.currentNote.id);
-    console.log(comment);
     this.notesService.addComment(comment, this.currentNote.id);
   }
 

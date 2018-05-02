@@ -1,7 +1,10 @@
-<div>
+<div class="details">
   <h2>{{currentNote.name}}</h2>
   <h3>{{currentNote.content}}</h3>
-  <p>Information obtained from ...</p>
+  <p *ngIf="currentNote.storage == 0; else firebase">Data stored in localStorage</p>
+  <ng-template #firebase>
+    <p>Data stored in FireBase</p>
+  </ng-template>
 </div>
 <app-note-comments [comments] = 'currentNote.comments' (newComment)="addComment($event)"></app-note-comments>
 <a routerLink=''>Go back</a>

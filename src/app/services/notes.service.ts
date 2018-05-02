@@ -9,6 +9,7 @@ export class NotesService {
   notes;
   currentNotes = new EventEmitter<any>();
   currentNotesChanged = new EventEmitter<any>();
+  currentNote = new EventEmitter<any>();
 
 
   constructor(private router: Router, private http: HttpClient) {
@@ -26,10 +27,14 @@ export class NotesService {
     return note;
   }
   updateNote(updatedNote) {
-    let note = this.findNote(updatedNote.id);
-    note = updatedNote;
+    this.notes = this.notes.map((elm) => {
+      if (elm.id === updatedNote.id) {
+        return updatedNote;
+      } else {
+        return elm;
+      }
+    });
     this.currentNotesChanged.emit(this.notes);
-    return;
   }
   createNote(note) {
     note.id = this.getUid();

@@ -1,0 +1,12 @@
+.form {
+  text-align: center;
+}
+.form > div {
+  margin-bottom: 10px;
+}
+.links {
+  cursor: pointer;
+}
+.links > a {
+  text-decoration: none;
+}

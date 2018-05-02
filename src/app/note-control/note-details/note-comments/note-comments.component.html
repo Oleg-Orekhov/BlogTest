@@ -1,7 +1,7 @@
 <div>
   <div *ngIf="comments !== undefined">
     <h2>Comments</h2>
-    <ul>
+    <ul class="comments">
       <li *ngFor="let comment of comments">
         <p>{{comment.author}}</p>
         <p>{{comment.content}}</p>
@@ -9,9 +9,13 @@
       </li>
     </ul>
   </div>
-  <form #form="ngForm" (ngSubmit)="addComment()">
-    <input type="text" name="name" [value]="comment.author" [(ngModel)]="comment.author">
-    <input type="text" name="name" [value]="comment.content" [(ngModel)]="comment.content">
+  <form #form="ngForm" (ngSubmit)="addComment(form)">
+    <label for="author"> Author </label>
+    <input id="author" type="text" name="author" [value]="comment.author" [(ngModel)]="comment.author" #author="ngModel" required>
+    <div class="alert" *ngIf="author.invalid && (author.dirty || author.touched)">Author is required</div>
+    <label for="comment"> Comment </label>
+    <textarea id="comment" type="text" name="content" [value]="comment.content" [(ngModel)]="comment.content" #content="ngModel" required></textarea>
+    <div class="alert" *ngIf="content.invalid && (content.dirty || content.touched)">Comment is required</div>
     <input type="submit">
   </form>
 </div>

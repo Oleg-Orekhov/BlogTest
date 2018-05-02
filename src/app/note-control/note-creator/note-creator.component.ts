@@ -17,7 +17,10 @@ export class NoteCreatorComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() { }
-  addCreated() {
+  addCreated(form) {
+    if (form.invalid) {
+      return;
+    }
     this.notesService.createNote(this.currentNote);
     this.router.navigate(['']);
   }

@@ -12,10 +12,13 @@
   border: 3px solid #046293;
   border-radius: 6px;
   margin-right: 20px;
+  margin-bottom: 20px;
   box-shadow: 4px 4px 10px grey;
   color: white;
   text-align: center;
   padding: 10px;
+  display: flex;
+  flex-flow: row nowrap;
 }
 .control-group {
   display: flex;
@@ -29,6 +32,9 @@
   overflow: hidden;
   cursor: pointer;
   margin-bottom: 10%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 .save-button > img {
   width: 40%;
@@ -54,7 +60,25 @@
   margin: 0 auto;
   display: block;
 }
-/*.create-link > a > span {*/
-  /*color: #bababa;*/
-  /*text-align: center;*/
-/*}*/
+.delete-button {
+
+}
+.content {
+  flex: 0 0 80%;
+}
+.manage-buttons {
+  flex: 0 0 20%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.manage-buttons img {
+  width: 80%;
+}
+.content-title {
+  font-size: 25px;
+  text-transform: capitalize;
+}
+.content-text {
+  font-size: 16px;
+  text-align: left;
+}

@@ -2,7 +2,7 @@
   <div class="control-group">
     <button (click)="saveAll()" class="save-button">
       <img src="../../assets/saveico.png" >
-      <span>Save to designated storage</span>
+      <span>Save data</span>
     </button>
     <button (click)="clearData()" class="save-button">
       <img src="../../assets/cleanico.png" >
@@ -11,11 +11,21 @@
   </div>
   <div class="list">
     <div *ngFor="let note of list" class="list-item">
-      <div>{{note.name}}</div>
-      <div>{{note.content}}</div>
-      <a routerLink="/edit/{{note.id}}">Edit</a>
-      <a (click)="deleteNote(note.id);">Delete</a>
-      <a routerLink="/details/{{note.id}}">Details</a>
+      <div class="content">
+        <div class="content-title">{{note.name}}</div>
+        <div class="content-text">{{note.content}}</div>
+      </div>
+      <div class="manage-buttons">
+        <div (click)="deleteNote(note.id);" class="delete-button">
+          <img src="../../assets/deleteico.png">
+        </div>
+        <a routerLink="/edit/{{note.id}}" class="edit-button">
+          <img src="../../assets/edit.ico">
+        </a>
+        <a routerLink="/details/{{note.id}}" class="details-button">
+          <img src="../../assets/find.ico">
+        </a>
+      </div>
     </div>
     <div class="create-link">
       <a routerLink="/create">

@@ -16,12 +16,17 @@ export class NoteCommentsComponent implements OnInit {
 
   ngOnInit() {
   }
-  addComment() {
-    const comment = {...this.comment, created_at: Date.now()};
+  addComment(form) {
+    if (form.invalid) {
+      return;
+    }
+    const comment = {...this.comment, created_at: new Date()};
+    console.log(comment);
     this.comment = {
       author: '',
       content: ''
     };
     this.newComment.emit(comment);
+    form.resetForm();
   }
 }

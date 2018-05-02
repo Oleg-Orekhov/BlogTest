@@ -1,8 +1,19 @@
-<form #form="ngForm" (ngSubmit)="addEdited()">
-  <input type="text" name="name" [value]="currentNote.name" [(ngModel)]="currentNote.name">
-  <textarea type="text" name="content" [value]="currentNote.content" [(ngModel)]="currentNote.content">
-  </textarea>
+<form #form="ngForm" (ngSubmit)="addEdited(form)" class="form">
+  <div>
+    <label for="title"> Title </label>
+    <input id="title" type="text" name="name" [value]="currentNote.name" [(ngModel)]="currentNote.name" #title="ngModel" required>
+    <div class="alert" *ngIf="title.invalid && (title.dirty || title.touched)">Title is required</div>
+  </div>
+  <div>
+    <label for="text"> Text </label>
+    <textarea id="text" type="text" name="content" [value]="currentNote.content" [(ngModel)]="currentNote.content" #text="ngModel" required>
+    </textarea>
+    <div class="alert" *ngIf="text.invalid && (text.dirty || text.touched)">Text is required</div>
+  </div>
   <input type="submit">
+  <div class="links">
+    <a (click)="deleteNote();">Delete</a>
+    <a routerLink=''>Go back</a>
+  </div>
 </form>
-<a (click)="deleteNote();">Delete</a>
-<a routerLink=''>Go back</a>
+
